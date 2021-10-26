@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import events from "@testing-library/user-event";
 import { Router } from "react-router";
@@ -13,7 +13,7 @@ import { TestExampleApi } from "./TestApi";
 import { PRODUCTS, getProductById, USER } from './TestData';
 import { Cart } from "../../src/client/pages/Cart";
 
-describe("Form tests: ", function() {
+describe("Form тесты на: ", function() {
     
     const basename = "/hw/store";
     const history = createMemoryHistory({
@@ -52,8 +52,8 @@ describe("Form tests: ", function() {
     });
    
     
-    it("Правильно отображается корзина", () => {
-        const { container, getByRole } = render(application);
+    it("Правильное отображение корзины", () => {
+        const { container } = render(application);
         events.click(cartBtn);
         const name = container.querySelector('td.Cart-Name').innerHTML;
         expect(name).toBe(product.name);
@@ -68,8 +68,7 @@ describe("Form tests: ", function() {
         expect(total).toBe('$' + product.price);
 
     })
-    it("Удаляется содержимое корзины корректно", () => {
-        const basename = "/hw/store";
+    it("Корректное удаление содержимого корзины", () => {
         const history = createMemoryHistory({
             initialEntries: ["/cart"],
             initialIndex: 0
@@ -91,10 +90,18 @@ describe("Form tests: ", function() {
         expect(clrBtn).toBeInTheDocument();
         events.click(clrBtn);
         expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
+        const view = screen.getByText(
+            /cart is empty\. please select products in the \./i);
+          
+          within(view).getByRole('link', {
+            name: /catalog/i
+        });
+        expect(view).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL()
         
     })
 
-    it("Нельзя отправить пустую форму", () => {
+    it("Не отправление пустой формы", () => {
         const { container, getByText} = render(application);
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();

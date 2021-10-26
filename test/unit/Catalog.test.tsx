@@ -51,6 +51,9 @@ describe("Catalog: ", function (){
             const link = product.querySelector('a.ProductItem-DetailsLink.card-link').getAttribute('href');
             expect(link).toBe(`/catalog/${id}`);
         });
+        expect(screen.getByRole('link', {
+            name: /cart/i
+        })).toBeInTheDocument();
         //screen.logTestingPlaygroundURL();
     });
 
@@ -89,9 +92,6 @@ describe("Catalog: ", function (){
             })
         ).toBeInTheDocument();
 
-        //screen.logTestingPlaygroundURL();
-        
-        
     });
 
     it("тест на добавление одинакавых товаров  в корзину ", () => {
@@ -118,13 +118,14 @@ describe("Catalog: ", function (){
         
         events.click(addBtn);
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
-        
-        const cart = container.querySelector(".nav-link:nth-child(4)").innerHTML;
-        expect(cart).toBe('Cart (1)');
+        expect(screen.getByRole('link', {
+            name: /cart \(1\)/i
+        })).toBeInTheDocument();
 
         events.click(addBtn);
-        expect(cart).toBe('Cart (1)');
-
+        expect(screen.getByRole('link', {
+            name: /cart \(1\)/i
+        })).toBeInTheDocument();
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         expect(TestExampleStore.getState().cart[testId].count).toBe(2);
         expect(container.textContent).toContain("Item in cart");
@@ -153,19 +154,19 @@ describe("Catalog: ", function (){
             name: /add to cart/i
         });
         events.click(addBtn);
-
-        const cart = container.querySelector(".nav-link:nth-child(4)").innerHTML;
-
         events.click(addBtn);
-        expect(cart).toBe('Cart (2)');
+        expect(screen.getByRole('link', {
+            name: /cart \(2\)/i
+        })).toBeInTheDocument();
 
         events.click(addBtn);
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
 
         events.click(addBtn);
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument()
-        expect(cart).toBe('Cart (2)');
-
+        expect(screen.getByRole('link', {
+            name: /cart \(2\)/i
+        })).toBeInTheDocument();
         expect(TestExampleStore.getState().cart[testId].count).toBe(4);
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         //screen.logTestingPlaygroundURL();
