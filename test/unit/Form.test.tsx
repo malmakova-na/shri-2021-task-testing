@@ -103,7 +103,7 @@ describe("Form тесты на: ", function() {
         
     })
 
-    it("Не отправление пустой формы", () => {
+    it("Отправление пустой формы", () => {
         const { container, getByText} = render(application);
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();

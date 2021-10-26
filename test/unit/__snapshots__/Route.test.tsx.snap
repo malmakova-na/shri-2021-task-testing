@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Переход по адресу:  / открывается главная страница приложения 1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/catalog"
+            onClick={[Function]}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/cart"
+            onClick={[Function]}
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Home"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col bg-secondary text-white py-4 bg-opacity-75"
+        >
+          <p
+            className="display-3"
+          >
+            Welcome to Example store!
+          </p>
+          <p
+            className="lead"
+          >
+            Culpa perspiciatis corporis facilis fugit similique
+          </p>
+          <p
+            className="lead"
+          >
+            Cum aut ut eveniet rem cupiditate natus veritatis quia
+          </p>
+        </div>
+      </div>
+      <div
+        className="row mb-4"
+      >
+        <div
+          className="col-12 col-md-4 bg-light py-3"
+        >
+          <h1>
+            Quickly
+          </h1>
+          <p
+            className="lead"
+          >
+            Odio aut assumenda ipsam amet reprehenderit. Perspiciatis qui molestiae qui tempora quisquam
+          </p>
+        </div>
+        <div
+          className="col-12 col-md-4 bg-light py-3"
+        >
+          <h1>
+            Qualitatively
+          </h1>
+          <p
+            className="lead"
+          >
+            Ut nisi distinctio est non voluptatem. Odio aut assumenda ipsam amet reprehenderit
+          </p>
+        </div>
+        <div
+          className="col-12 col-md-4 bg-light py-3"
+        >
+          <h1>
+            Inexpensive
+          </h1>
+          <p
+            className="lead"
+          >
+            Perspiciatis qui molestiae qui tempora quisquam. Ut nisi distinctio est non voluptatem
+          </p>
+        </div>
+      </div>
+      <div
+        className="row mb-4"
+      >
+        <div
+          className="col-12py-3"
+        >
+          <p>
+            Sed voluptatum quis voluptates laudantium incidunt laudantium. Illo non quos eos vel ipsa. Explicabo itaque est optio neque rerum provident enim qui sed. Corrupti commodi voluptatem vero soluta hic.
+          </p>
+          <p>
+            Modi corporis consectetur aliquid sit cum tenetur enim. Sed voluptatum quis voluptates laudantium incidunt laudantium. Illo non quos eos vel ipsa. Explicabo itaque est optio neque rerum provident enim qui sed. Corrupti commodi voluptatem vero soluta hic.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Переход по адресу:  /cart открывается страница "Cart" 1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/catalog"
+            onClick={[Function]}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/cart"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Cart"
+    >
+      <div
+        className="row mb-4"
+      >
+        <div
+          className="col"
+        >
+          <h1>
+            Shopping cart
+          </h1>
+          Cart is empty. Please select products in the 
+          <a
+            href="/catalog"
+            onClick={[Function]}
+          >
+            catalog
+          </a>
+          .
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Переход по адресу:  /contacts открывается страница "Contacts" 1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/catalog"
+            onClick={[Function]}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/contacts"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/cart"
+            onClick={[Function]}
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Contacts"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <h1>
+            Contacts
+          </h1>
+          <p>
+            Ut non consequatur aperiam ex dolores. Voluptatum harum consequatur est totam. Aut voluptatum aliquid aut optio et ea. Quaerat et eligendi minus quasi. Culpa voluptatem voluptatem dolores molestiae aut quos iure. Repellat aperiam ut aliquam iure. Veritatis magnam quisquam et dolorum recusandae aut.
+          </p>
+          <p>
+            Molestias inventore illum architecto placeat molestias ipsam facilis ab quo. Rem dolore cum qui est reprehenderit assumenda voluptatem nisi ipsa. Unde libero quidem. Excepturi maiores vel quia. Neque facilis nobis minus veniam id. Eum cum eveniet accusantium molestias voluptas aut totam laborum aut. Ea molestiae ullam et. Quis ea ipsa culpa eligendi ab sit ea error suscipit. Quia ea ut minus distinctio quam eveniet nihil. Aut voluptate numquam ipsa dolorem et quas nemo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Переход по адресу:  /delivery открывается страница "Delivery" 1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/catalog"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/cart"
+            onClick={[Function]}
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Catalog"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <h1>
+            Catalog
+          </h1>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        LOADING
+      </div>
+    </div>
+  </div>
+</div>
+`;

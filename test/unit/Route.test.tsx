@@ -5,6 +5,8 @@ import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
+import renderer from 'react-test-renderer';
+
 
 import { Application } from "../../src/client/Application";
 import { ExampleApi, CartApi } from "../../src/client/api";
@@ -37,6 +39,9 @@ describe('Переход по адресу: ', function() {
         expect(
             screen.getByRole('heading', { name: /catalog/i}).textContent
         ).toEqual('Catalog');
+        const contactSnapshot = renderer.create(application).toJSON();
+      
+        expect(contactSnapshot).toMatchSnapshot();
     });
 
     it('/ открывается главная страница приложения', () => {
@@ -62,6 +67,9 @@ describe('Переход по адресу: ', function() {
         expect(
             screen.getByText(/welcome to example store!/i)
         ).toBeInTheDocument();
+        const appSnapshot = renderer.create(application).toJSON();
+      
+        expect(appSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL();
     });
 
@@ -85,13 +93,16 @@ describe('Переход по адресу: ', function() {
         </Router>
         );
         const {getByRole, container} = render(application);
+        const cartSnapshot = renderer.create(application).toJSON();
         
         events.click(screen.getByRole('link', {
             name: /cart/i
         }));
+        expect(cartSnapshot).toMatchSnapshot();
         expect(
             screen.getByRole('heading', { name: /cart/i}).textContent
         ).toEqual('Shopping cart');
+        
     });
     it('/contacts открывается страница "Contacts"', () => {
         const history = createMemoryHistory({
@@ -119,6 +130,9 @@ describe('Переход по адресу: ', function() {
         expect(
             screen.getByRole('heading', { name: /contacts/i}).textContent
         ).toEqual('Contacts');
+        const contactSnapshot = renderer.create(application).toJSON();
+      
+        expect(contactSnapshot).toMatchSnapshot();
     });
 
     it('/catalog открывается страница "Catalog"', () => {

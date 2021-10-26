@@ -31,20 +31,39 @@ it("Правильно отображается NavBar", () => {
         );
         const {getByRole, container} = render(application);
         
+        expect(screen.getByRole('link', { 
+            name: /Example store/i 
+        })).toBeInTheDocument();
+        expect(screen.getByRole('link', { 
+            name: /Example store/i 
+        })).toHaveAttribute('href');
+
         expect(screen.getByRole('link', {
             name: /catalog/i
         })).toBeInTheDocument();
+        expect(screen.getByRole('link', {
+            name: /catalog/i
+        })).toHaveAttribute('href');
 
         expect(screen.getByRole('link', {
             name: /delivery/i
         })).toBeInTheDocument();
+        expect(screen.getByRole('link', {
+            name: /delivery/i
+        })).toHaveAttribute('href');
 
         expect(screen.getByRole('link', {
             name: /contacts/i
         })).toBeInTheDocument();
+        expect(screen.getByRole('link', {
+            name: /contacts/i
+        })).toHaveAttribute('href');
 
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
+        expect(screen.getByRole('link', {
+            name: /cart/i
+        })).toHaveAttribute('href');
 
 });
