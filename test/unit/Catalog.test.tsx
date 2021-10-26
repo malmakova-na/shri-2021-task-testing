@@ -127,6 +127,7 @@ describe("Catalog: ", function (){
 
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         expect(TestExampleStore.getState().cart[testId].count).toBe(2);
+        expect(container.textContent).toContain("Item in cart");
         //screen.logTestingPlaygroundURL()
     });
 

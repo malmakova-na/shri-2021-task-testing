@@ -72,3 +72,9 @@ export const  getProductById = (id: number) => {
         }
     }
 };
+
+export const USER = {
+    name: 'Test User Name',
+    phone: '89686857722',
+    adress: 'Test User Adress'
+}

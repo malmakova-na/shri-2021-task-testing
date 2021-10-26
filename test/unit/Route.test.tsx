@@ -84,7 +84,8 @@ describe('Переход по адресу: ', function() {
             </Provider>
         </Router>
         );
-        const {getByRole} = render(application);
+        const {getByRole, container} = render(application);
+        
         events.click(screen.getByRole('link', {
             name: /cart/i
         }));
