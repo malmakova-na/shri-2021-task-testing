@@ -59,7 +59,6 @@ describe('Переход по адресу: ', function() {
         </Router>
         );
         const {getByRole} = render(application);
-        //console.log(screen.getByText(/welcome to example store!/i).innerHTML)
         expect(
             screen.getByText(/welcome to example store!/i)
         ).toBeInTheDocument();

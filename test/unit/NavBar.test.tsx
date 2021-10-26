@@ -31,12 +31,6 @@ it("Правильно отображается NavBar", () => {
         );
         const {getByRole, container} = render(application);
         
-        
-        /*
-        expect( container.querySelector(".nav-link:nth-child(1)")).toBeInTheDocument();
-        expect( container.querySelector(".nav-link:nth-child(2)")).toBeInTheDocument()
-        expect( container.querySelector(".nav-link:nth-child(3)")).toBeInTheDocument()
-        expect( container.querySelector(".nav-link:nth-child(4)")).toBeInTheDocument()
         expect(screen.getByRole('link', {
             name: /catalog/i
         })).toBeInTheDocument();
@@ -51,6 +45,6 @@ it("Правильно отображается NavBar", () => {
 
         expect(screen.getByRole('link', {
             name: /cart/i
-        })).toBeInTheDocument();*/
+        })).toBeInTheDocument();
 
 });
