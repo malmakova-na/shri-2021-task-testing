@@ -34,14 +34,17 @@ describe('Переход по адресу: ', function() {
         );
         const {getByRole} = render(application);
         events.click(screen.getByRole('link', {
-            name: /catalog/i
+            name: /delivery/i
         }));
         expect(
-            screen.getByRole('heading', { name: /catalog/i}).textContent
-        ).toEqual('Catalog');
+            screen.getByRole('link', {
+                name: /delivery/i
+            })
+        ).toBeInTheDocument();
         const contactSnapshot = renderer.create(application).toJSON();
       
         expect(contactSnapshot).toMatchSnapshot();
+        //screen.logTestingPlaygroundURL()
     });
 
     it('/ открывается главная страница приложения', () => {

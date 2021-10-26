@@ -13,6 +13,7 @@ export class TestExampleApi extends ExampleApi {
         return products as Promise<AxiosResponse<ProductShortInfo[], any>>;
       
     }
+    
     /*
     async getProductById(id: number) {
       const products = await new Promise((responce) => {

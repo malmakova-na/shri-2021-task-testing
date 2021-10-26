@@ -8,11 +8,11 @@ import { createMemoryHistory } from 'history';
 
 import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
-import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded } from "../../src/client/store";
+import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded, checkoutComplete, checkout, addToCart } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
 import { PRODUCTS, getProductById, USER, CartData } from './TestData';
 import { Cart } from "../../src/client/pages/Cart";
-
+import {ExampleApi} from '../../src/client/api'
 describe("Form тесты на: ", function() {
     
     const basename = "/hw/store";
@@ -86,11 +86,13 @@ describe("Form тесты на: ", function() {
             </Router>
         );
         const { container } = render(application);
-        const clrBtn = screen.getByRole('button', {
+        /*const clrBtn = screen.getByRole('button', {
             name: /clear shopping cart/i
         });
-        expect(clrBtn).toBeInTheDocument();
-        events.click(clrBtn);
+        expect(clrBtn).toBeInTheDocument();*/
+        TestExampleStore.dispatch(checkoutComplete(testId));
+        cart.setState(CartData);
+        //events.click(clrBtn);
         expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
         const view = screen.getByText(
             /cart is empty\. please select products in the \./i);
@@ -108,19 +110,38 @@ describe("Form тесты на: ", function() {
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid address/i)).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL()
     })
 
     it("Правильное заполнение формы", () => {
         const { getByRole} = render(application);
-
+    
         events.type(getByRole('textbox', { name: /name/i }), USER.name);
         expect(getByRole('textbox', { name: /name/i })).toHaveValue(USER.name);
 
         events.type(getByRole('textbox', { name: /phone/i }), USER.phone);
         expect(getByRole('textbox', { name: /phone/i })).toHaveValue(USER.phone);
 
-        events.type(getByRole('textbox', { name: /address/i }), USER.adress);
-        expect(getByRole('textbox', { name: /address/i })).toHaveValue(USER.adress);
+        events.type(getByRole('textbox', { name: /address/i }), USER.address);
+        expect(getByRole('textbox', { name: /address/i })).toHaveValue(USER.address);
 
+        
+        //screen.logTestingPlaygroundURL();
+
+    })
+    it("Отрисовка сообщение о совершении заказа", () => {
+        const { container } = render(application);
+        TestExampleStore.dispatch(checkoutComplete(10));
+        
+        expect(screen.getByText(/10/i)).toBeInTheDocument();
+        const message = container.querySelector('div.Cart-SuccessMessage');
+        expect(message).toBeInTheDocument();
+        const view = screen.getByText(
+            /cart is empty\. please select products in the \./i);
+          
+          within(view).getByRole('link', {
+            name: /catalog/i
+        });
+        expect(view).toBeInTheDocument();
     })
 });

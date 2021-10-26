@@ -1,5 +1,5 @@
 import { productsLoaded } from '../../src/client/store';
-import { Product, CartItem, CartState } from '../../src/common/types';
+import { Product, CartItem, CartState, CheckoutFormData } from '../../src/common/types';
 
 const PRODUCT = {
     name: 'test-product-name', 
@@ -58,9 +58,9 @@ export const  getProductById = (id: number) => {
     }
 };
 
-export const USER = {
+export const USER: CheckoutFormData = {
     name: 'Test User Name',
     phone: '89686857722',
-    adress: 'Test User Adress'
+    address: 'Test_User_Adress',
 }
 
