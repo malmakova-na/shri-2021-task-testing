@@ -42,26 +42,11 @@ export const PRODUCTS: Product[] = [
         material: PRODUCT.material,
     }
 ];
-export const Carts:CartState  = {
+export const CartData:CartState  = {
     0:{
         name: PRODUCT.name,
         count: 0,
         price: 1,
-    },
-    1:{
-        name: PRODUCT.name,
-        count: 0,
-        price: 2,
-    },
-    2:{
-        name: PRODUCT.name,
-        count: 0,
-        price: 3,
-    },
-    3: {
-        name: PRODUCT.name,
-        count: 0,
-        price: 4,
     }
 };
 
@@ -78,3 +63,4 @@ export const USER = {
     phone: '89686857722',
     adress: 'Test User Adress'
 }
+

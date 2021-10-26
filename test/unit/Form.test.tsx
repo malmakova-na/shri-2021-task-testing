@@ -10,7 +10,7 @@ import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
 import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
-import { PRODUCTS, getProductById, USER } from './TestData';
+import { PRODUCTS, getProductById, USER, CartData } from './TestData';
 import { Cart } from "../../src/client/pages/Cart";
 
 describe("Form тесты на: ", function() {
@@ -54,6 +54,7 @@ describe("Form тесты на: ", function() {
     
     it("Правильное отображение корзины", () => {
         const { container } = render(application);
+    
         events.click(cartBtn);
         const name = container.querySelector('td.Cart-Name').innerHTML;
         expect(name).toBe(product.name);
@@ -66,6 +67,7 @@ describe("Form тесты на: ", function() {
 
         const total = container.querySelector('td.Cart-Total').innerHTML;
         expect(total).toBe('$' + product.price);
+        //screen.logTestingPlaygroundURL()
 
     })
     it("Корректное удаление содержимого корзины", () => {

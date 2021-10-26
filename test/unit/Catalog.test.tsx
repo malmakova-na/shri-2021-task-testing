@@ -7,11 +7,10 @@ import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
 
 import { Application } from "../../src/client/Application";
-import { ExampleApi, CartApi } from "../../src/client/api";
+import { CartApi } from "../../src/client/api";
 import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
-import { CartItem } from '../../src/common/types';
-import { PRODUCTS, getProductById, Carts } from './TestData';
+import { PRODUCTS, getProductById, CartData } from './TestData';
 
 describe("Catalog: ", function (){
     const basename = "/hw/store";
@@ -31,13 +30,14 @@ describe("Catalog: ", function (){
     );
     //console.log("store ",TestExampleStore)
     it("тест на отображение товаров в каталоге: ", () => {
+        
         const { container} = render(application);
         
         TestExampleStore.dispatch(productsLoad());
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
         //screen.logTestingPlaygroundURL();
         const products = container.querySelectorAll(".card-body");
-        
+        //console.log("cart state", TestExampleStore.getState())
         expect(products.length).toEqual(PRODUCTS.length);//правильное количество товаров
         products.forEach((product, id) => {
             const testExample = getProductById(id);
@@ -51,6 +51,8 @@ describe("Catalog: ", function (){
             const link = product.querySelector('a.ProductItem-DetailsLink.card-link').getAttribute('href');
             expect(link).toBe(`/catalog/${id}`);
         });
+        const productStatus = container.querySelector('span.CartBadge');
+        expect(productStatus).toBeNull();
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
@@ -61,7 +63,7 @@ describe("Catalog: ", function (){
         const { container, getByRole} = render(application);
         const testId = 0;
         const product = getProductById(testId);
-       
+
         TestExampleStore.dispatch(productsLoad());
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
 
@@ -91,7 +93,6 @@ describe("Catalog: ", function (){
                 name: /add to cart/i
             })
         ).toBeInTheDocument();
-
     });
 
     it("тест на добавление одинакавых товаров  в корзину ", () => {
@@ -117,6 +118,7 @@ describe("Catalog: ", function (){
         const addBtn = container.querySelector('button.ProductDetails-AddToCart');
         
         events.click(addBtn);
+    
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         expect(screen.getByRole('link', {
             name: /cart \(1\)/i
