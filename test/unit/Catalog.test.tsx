@@ -63,13 +63,13 @@ describe("Catalog: ", function (){
             const link = product.querySelector('a.ProductItem-DetailsLink.card-link').getAttribute('href');
             expect(link).toBe(`/catalog/${id}`);
         });
-        //const productStatus = container.querySelector('span.CartBadge');
-        //expect(productStatus).toBeNull();
+        const productStatus = container.querySelector('span.CartBadge');
+        expect(productStatus).toBeNull();
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
         //screen.logTestingPlaygroundURL();
-       
+        
         
     });
 
@@ -160,6 +160,10 @@ describe("Catalog: ", function (){
             name: /cart \(1\)/i
         })).toBeInTheDocument();
 
+        /*const prdctOneSnapshot = renderer.create(application).toJSON();
+      
+        expect(prdctOneSnapshot).toMatchSnapshot();*/
+
         //screen.logTestingPlaygroundURL()
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         
@@ -210,6 +214,9 @@ describe("Catalog: ", function (){
         const cardBarges = container.querySelectorAll("span.CartBadge");
         expect(cardBarges.length).toBe(1);
         //screen.logTestingPlaygroundURL()
+        /*const prdctsOneSnapshot = renderer.create(application).toJSON();
+      
+        expect(prdctsOneSnapshot).toMatchSnapshot();*/
         
     });
 
@@ -237,6 +244,10 @@ describe("Catalog: ", function (){
         })).toBeInTheDocument();
         const cardBarges = container.querySelectorAll("span.CartBadge");
         expect(cardBarges.length).toBe(2);
+
+        /*const prdctsTwoSnapshot = renderer.create(application).toJSON();
+      
+        expect(prdctsTwoSnapshot).toMatchSnapshot();*/
         //expect(container.textContent).toContain("Item in cart");
         //screen.logTestingPlaygroundURL()
         

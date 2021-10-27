@@ -255,6 +255,245 @@ exports[`Переход по адресу:  /cart открывается стр�
 </div>
 `;
 
+exports[`Переход по адресу:  /catalog открывается страница "Catalog" 1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/catalog"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/cart"
+            onClick={[Function]}
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Catalog"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <h1>
+            Catalog
+          </h1>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3"
+          data-testid={0}
+        >
+          <div
+            className="ProductItem card w-100 mb-4"
+            data-testid={0}
+          >
+            <img
+              className="Image card-img-top"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+            />
+            <div
+              className="card-body"
+            >
+              <h5
+                className="ProductItem-Name card-title"
+              >
+                test-product-name
+              </h5>
+              <p
+                className="ProductItem-Price card-text"
+              >
+                $
+                1
+              </p>
+              <a
+                className="ProductItem-DetailsLink card-link"
+                href="/catalog/0"
+                onClick={[Function]}
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3"
+          data-testid={1}
+        >
+          <div
+            className="ProductItem card w-100 mb-4"
+            data-testid={1}
+          >
+            <img
+              className="Image card-img-top"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+            />
+            <div
+              className="card-body"
+            >
+              <h5
+                className="ProductItem-Name card-title"
+              >
+                test-product-name
+              </h5>
+              <p
+                className="ProductItem-Price card-text"
+              >
+                $
+                2
+              </p>
+              <a
+                className="ProductItem-DetailsLink card-link"
+                href="/catalog/1"
+                onClick={[Function]}
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3"
+          data-testid={2}
+        >
+          <div
+            className="ProductItem card w-100 mb-4"
+            data-testid={2}
+          >
+            <img
+              className="Image card-img-top"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+            />
+            <div
+              className="card-body"
+            >
+              <h5
+                className="ProductItem-Name card-title"
+              >
+                test-product-name
+              </h5>
+              <p
+                className="ProductItem-Price card-text"
+              >
+                $
+                3
+              </p>
+              <a
+                className="ProductItem-DetailsLink card-link"
+                href="/catalog/2"
+                onClick={[Function]}
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3"
+          data-testid={3}
+        >
+          <div
+            className="ProductItem card w-100 mb-4"
+            data-testid={3}
+          >
+            <img
+              className="Image card-img-top"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+            />
+            <div
+              className="card-body"
+            >
+              <h5
+                className="ProductItem-Name card-title"
+              >
+                test-product-name
+              </h5>
+              <p
+                className="ProductItem-Price card-text"
+              >
+                $
+                4
+              </p>
+              <a
+                className="ProductItem-DetailsLink card-link"
+                href="/catalog/3"
+                onClick={[Function]}
+              >
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Переход по адресу:  /contacts открывается страница "Contacts" 1`] = `
 <div
   className="Application"

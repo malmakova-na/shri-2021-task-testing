@@ -10,7 +10,8 @@ import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { ExampleApi, CartApi } from "../../src/client/api";
-import { initStore } from "../../src/client/store";
+import { initStore, productsLoaded } from "../../src/client/store";
+import { PRODUCTS } from "./TestData";
 
 describe('Переход по адресу: ', function() {
     it('/delivery открывается страница "Delivery"', () => {
@@ -148,6 +149,7 @@ describe('Переход по адресу: ', function() {
         
         const api = new ExampleApi(basename);
         const cart = new CartApi();
+        
         const store = initStore(api, cart);
         
         const application = (
@@ -157,12 +159,19 @@ describe('Переход по адресу: ', function() {
             </Provider>
         </Router>
         );
+
         const {getByRole} = render(application);
+        store.dispatch(productsLoaded(PRODUCTS));
         events.click(screen.getByRole('link', {
             name: /catalog/i
         }));
         expect(
             screen.getByRole('heading', { name: /catalog/i}).textContent
         ).toEqual('Catalog');
+
+        const catalogSnapshot = renderer.create(application).toJSON();
+      
+        expect(catalogSnapshot).toMatchSnapshot();
+        //screen.logTestingPlaygroundURL()
     });
 });
