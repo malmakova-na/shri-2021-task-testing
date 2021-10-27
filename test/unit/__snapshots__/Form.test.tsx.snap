@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form тесты на:  Отрисовку сообщения о совершении заказа 1`] = `
+exports[`Form тесты на:  Правильное отображение корзины 1`] = `
 <div
   className="Application"
 >

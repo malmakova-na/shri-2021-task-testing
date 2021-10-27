@@ -76,9 +76,19 @@ describe("Form тесты на: ", function() {
 
         const total = container.querySelector('td.Cart-Total').innerHTML;
         expect(total).toBe('$' + product.price);
+        TestExampleStore.dispatch(checkoutComplete(10));
+        ///screen.logTestingPlaygroundURL()
+        
+        const message = container.querySelector('div.Cart-SuccessMessage');
+        expect(message).toBeInTheDocument();
+        
+        const messageSnapshot = renderer.create(application).toJSON();
+      
+        expect(messageSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL()
 
     })
+    /*
     it("Корректное удаление содержимого корзины", () => {
         const history = createMemoryHistory({
             initialEntries: ["/cart"],
@@ -145,6 +155,7 @@ describe("Form тесты на: ", function() {
         //screen.logTestingPlaygroundURL();
 
     })
+    
     it("Отрисовку сообщения о совершении заказа", () => {
         const { container } = render(application);
         TestExampleStore.dispatch(checkoutComplete(10));
@@ -164,5 +175,6 @@ describe("Form тесты на: ", function() {
         expect(messageSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL()
     });
+    */
     
 });
