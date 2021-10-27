@@ -2,7 +2,7 @@ const { assert } = require('chai');
 
 describe('Мобильная версия:', async function() {
     const baseurl = '/hw/store/';
-    it('навигационное меню должно скрываться за "гамбургер"', async function() {
+    it('меню должно скрываться за "гамбургер"', async function() {
         await this.browser.setWindowSize(570, 800);
         await this.browser.url(baseurl);
 
@@ -45,7 +45,7 @@ describe('Мобильная версия:', async function() {
             assert.equal(await navbar.getAttribute("class"), 'Application-Menu collapse navbar-collapse');
 
             let currentUrl = await this.browser.getUrl();
-            assert.equal(currentUrl.includes(menuItems[i]), true);
+            assert.equal(currentUrl.includes(menu[i]), true);
         }
     });
     it('Название магазина- ссылка на главную страницу', async function() {
