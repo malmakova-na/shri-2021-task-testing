@@ -90,7 +90,7 @@ describe("Form тесты на: ", function() {
             name: /clear shopping cart/i
         });
         expect(clrBtn).toBeInTheDocument();*/
-        screen.logTestingPlaygroundURL()
+       // screen.logTestingPlaygroundURL()
         expect(screen.getByRole('button', {
             name: /clear shopping cart/i
         })).toBeInTheDocument();//есть ли  кнопка удаления
