@@ -36,7 +36,7 @@ export const Cart: React.FC = () => {
                     <td className={bem('Name')}>{item.name}</td>
                     <td className={bem('Price')}>${item.price}</td>
                     <td className={bem('Count')}>{item.count}</td>
-                    <td className={bem('Total')}>${item.count * item.price}</td>
+                    <td className={bem('Total')}>${item.count * item.price }</td>
                 </tr>
             );
         });

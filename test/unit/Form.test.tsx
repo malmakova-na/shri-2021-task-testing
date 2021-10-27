@@ -90,6 +90,10 @@ describe("Form тесты на: ", function() {
             name: /clear shopping cart/i
         });
         expect(clrBtn).toBeInTheDocument();*/
+        screen.logTestingPlaygroundURL()
+        expect(screen.getByRole('button', {
+            name: /clear shopping cart/i
+        })).toBeInTheDocument();
         TestExampleStore.dispatch(checkoutComplete(testId));
         cart.setState(CartData);
         //events.click(clrBtn);
@@ -101,6 +105,8 @@ describe("Form тесты на: ", function() {
             name: /catalog/i
         });
         expect(view).toBeInTheDocument();
+        const form = container.querySelector('Form');
+        expect(form).toBeNull();
         //screen.logTestingPlaygroundURL()
         
     })

@@ -37,7 +37,7 @@ describe("Catalog: ", function (){
         const { container} = render(application);
         
         TestExampleStore.dispatch(productsLoad());
-        expect(screen.getByText(/loading/i)).toBeInTheDocument();
+        expect(screen.getByText(/loading/i).innerHTML).toBe('LOADING');
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
         //screen.logTestingPlaygroundURL();
         const products = container.querySelectorAll(".card-body");
@@ -86,6 +86,7 @@ describe("Catalog: ", function (){
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
 
         const detailsLink = container.querySelector('.ProductItem-DetailsLink');
+        expect(detailsLink).toBeInTheDocument();
         events.click(detailsLink); 
         
         TestExampleStore.dispatch(productDetailsLoad(product.id));
@@ -111,6 +112,7 @@ describe("Catalog: ", function (){
                 name: /add to cart/i
             })
         ).toBeInTheDocument();
+        
     });
     it("тест на добавление одного товара в корзину ", () => {
         const basename = "/hw/store";
@@ -148,6 +150,11 @@ describe("Catalog: ", function (){
         })).toBeInTheDocument();  
         const cardBarges = container.querySelectorAll("span.CartBadge");
         expect(cardBarges.length).toBe(0);
+        const cartBtn = screen.getByRole('link', {
+            name: /cart/i
+        });
+        events.click(cartBtn);
+        expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
        // screen.logTestingPlaygroundURL()
         //screen.logTestingPlaygroundURL()     
     });
