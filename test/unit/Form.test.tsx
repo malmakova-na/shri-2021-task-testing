@@ -5,6 +5,7 @@ import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
+import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
@@ -109,6 +110,8 @@ describe("Form тесты на: ", function() {
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid address/i)).toBeInTheDocument();
+
+        
         //screen.logTestingPlaygroundURL()
     })
 
@@ -142,6 +145,9 @@ describe("Form тесты на: ", function() {
             name: /catalog/i
         });
         expect(view).toBeInTheDocument();
+        const messageSnapshot = renderer.create(application).toJSON();
+      
+        expect(messageSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL()
     })
 });

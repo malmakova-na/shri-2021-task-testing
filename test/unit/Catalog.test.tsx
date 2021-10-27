@@ -5,6 +5,7 @@ import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
+import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
@@ -147,7 +148,7 @@ describe("Catalog: ", function (){
         })).toBeInTheDocument();  
         const cardBarges = container.querySelectorAll("span.CartBadge");
         expect(cardBarges.length).toBe(0);
-        screen.logTestingPlaygroundURL()
+       // screen.logTestingPlaygroundURL()
         //screen.logTestingPlaygroundURL()     
     });
 
@@ -205,12 +206,70 @@ describe("Catalog: ", function (){
         })).toBeInTheDocument();
         const cardBarges = container.querySelectorAll("span.CartBadge");
         expect(cardBarges.length).toBe(2);
-        expect(container.textContent).toContain("Item in cart");
+        //expect(container.textContent).toContain("Item in cart");
         //screen.logTestingPlaygroundURL()
         
     });
 
-    /*it("тест на добавление одинакавых товаров  в корзину ", () => {
+    it("тест на  отображение корзины ", () => {
+        const basename = "/hw/store";
+        const history = createMemoryHistory({
+            initialEntries: ["/cart"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_1);
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        //console.log(TestExampleStore.getState())
+        expect(screen.getByRole('table')).toBeInTheDocument();
+        const cartSnapshot = renderer.create(application).toJSON();
+      
+        expect(cartSnapshot).toMatchSnapshot();
+        //screen.logTestingPlaygroundURL()
+        //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
+        
+    });
+
+    
+
+    /*
+    it("тест на  отображение таблицы корзины ", () => {
+        const basename = "/hw/store";
+        const history = createMemoryHistory({
+            initialEntries: ["/cart"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_1);
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        //console.log(TestExampleStore.getState())
+        
+        screen.logTestingPlaygroundURL()
+        //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
+        
+    });
+    
+    it("тест на добавление одинакавых товаров  в корзину ", () => {
         const { container, getByRole} = render(application);
         const testId = 0;
         const product = getProductById(testId);

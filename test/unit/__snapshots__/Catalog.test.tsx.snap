@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalog:  тест на  отображение корзины  1`] = `
+<div
+  className="Application"
+>
+  <nav
+    className="navbar navbar-expand-sm navbar-light bg-light"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="Application-Brand navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        Example store
+      </a>
+      <button
+        aria-label="Toggle navigation"
+        className="Application-Toggler navbar-toggler"
+        onClick={[Function]}
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="Application-Menu collapse navbar-collapse"
+      >
+        <div
+          className="navbar-nav"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/catalog"
+            onClick={[Function]}
+          >
+            Catalog
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/delivery"
+            onClick={[Function]}
+          >
+            Delivery
+          </a>
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Contacts
+          </a>
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/cart"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Cart (1)
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container pt-4"
+  >
+    <div
+      className="Cart"
+    >
+      <div
+        className="row mb-4"
+      >
+        <div
+          className="col"
+        >
+          <h1>
+            Shopping cart
+          </h1>
+          <table
+            className="Cart-Table table"
+          >
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                >
+                  #
+                </th>
+                <th
+                  scope="col"
+                >
+                  Product
+                </th>
+                <th
+                  scope="col"
+                >
+                  Price
+                </th>
+                <th
+                  scope="col"
+                >
+                  Count
+                </th>
+                <th
+                  scope="col"
+                >
+                  Total
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                data-testid="0"
+              >
+                <th
+                  className="Cart-Index"
+                  scope="row"
+                >
+                  1
+                </th>
+                <td
+                  className="Cart-Name"
+                >
+                  test-product-name
+                </td>
+                <td
+                  className="Cart-Price"
+                >
+                  $
+                  1
+                </td>
+                <td
+                  className="Cart-Count"
+                >
+                  1
+                </td>
+                <td
+                  className="Cart-Total"
+                >
+                  $
+                  1
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td
+                  colSpan={4}
+                >
+                  Order price:
+                </td>
+                <td
+                  className="Cart-OrderPrice"
+                >
+                  $
+                  1
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div
+        className="row mb-4"
+      >
+        <div
+          className="col-6"
+        >
+          <button
+            className="Cart-Clear btn btn-outline-secondary"
+            onClick={[Function]}
+          >
+            Clear shopping cart
+          </button>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 col-sm-8 col-md-6 col-lg-4"
+        >
+          <h2>
+            Сheckout
+          </h2>
+          <div
+            className="Form"
+          >
+            <div
+              className="mb-3"
+            >
+              <label
+                className="form-label"
+                htmlFor="f-name"
+              >
+                Name
+              </label>
+              <input
+                autoComplete="off"
+                className="Form-Field Form-Field_type_name form-control"
+                disabled={false}
+                id="f-name"
+                onChange={[Function]}
+                type="text"
+              />
+              <div
+                className="invalid-feedback"
+              >
+                Please provide your name
+              </div>
+            </div>
+            <div
+              className="mb-3"
+            >
+              <label
+                className="form-label"
+                htmlFor="f-phone"
+              >
+                Phone
+              </label>
+              <input
+                className="Form-Field Form-Field_type_phone form-control"
+                disabled={false}
+                id="f-phone"
+                onChange={[Function]}
+                type="text"
+              />
+              <div
+                className="invalid-feedback"
+              >
+                Please provide a valid phone
+              </div>
+            </div>
+            <div
+              className="mb-3"
+            >
+              <label
+                className="form-label"
+                htmlFor="f-address"
+              >
+                Address
+              </label>
+              <textarea
+                className="Form-Field Form-Field_type_address form-control"
+                disabled={false}
+                id="f-address"
+                onChange={[Function]}
+                rows={3}
+              />
+              <div
+                className="invalid-feedback"
+              >
+                Please provide a valid address
+              </div>
+            </div>
+            <button
+              className="Form-Submit btn btn-primary"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
