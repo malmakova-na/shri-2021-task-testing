@@ -93,7 +93,7 @@ describe("Form тесты на: ", function() {
         screen.logTestingPlaygroundURL()
         expect(screen.getByRole('button', {
             name: /clear shopping cart/i
-        })).toBeInTheDocument();
+        })).toBeInTheDocument();//есть ли  кнопка удаления
         TestExampleStore.dispatch(checkoutComplete(testId));
         cart.setState(CartData);
         //events.click(clrBtn);

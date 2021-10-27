@@ -40,6 +40,14 @@ describe("Catalog: ", function (){
         expect(screen.getByText(/loading/i).innerHTML).toBe('LOADING');
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
         //screen.logTestingPlaygroundURL();
+        
+        
+        const imgs = container.querySelectorAll('img.Image');
+        expect(imgs.length).toBe(PRODUCTS.length);
+        //screen.logTestingPlaygroundURL()
+
+
+    
         const products = container.querySelectorAll(".card-body");
         //console.log("cart state", TestExampleStore.getState())
         expect(products.length).toEqual(PRODUCTS.length);//правильное количество товаров
@@ -60,6 +68,7 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
+       
         //screen.logTestingPlaygroundURL();
     });
 
@@ -79,6 +88,7 @@ describe("Catalog: ", function (){
             </Router>
         );
         const { container, getByRole} = render(application);
+
         const testId = 0;
         const product = getProductById(testId);
 
@@ -107,12 +117,16 @@ describe("Catalog: ", function (){
         const material = container.querySelector('dd.ProductDetails-Material').innerHTML;
         expect(material).toBe(product.material);
 
+        const img = container.querySelector('.Image');
+        expect(img).toBeInTheDocument();
+        screen.logTestingPlaygroundURL()
+
         expect(
             screen.getByRole('button', {
                 name: /add to cart/i
             })
         ).toBeInTheDocument();
-        
+        screen.logTestingPlaygroundURL()
     });
     it("тест на добавление одного товара в корзину ", () => {
         const basename = "/hw/store";
