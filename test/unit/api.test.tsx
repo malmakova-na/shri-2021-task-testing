@@ -75,7 +75,7 @@ it('productsLoaded', async() => {
     expect(answ.id).toBe(0)
 }); */
 
-it('productDetailsLoaded', async() => {
+/*it('productDetailsLoaded', async() => {
     const api = new TestExampleApi(basename);
     const STUB = {
         details: {
@@ -97,5 +97,5 @@ it('productDetailsLoaded', async() => {
     const answ = TestExampleStore.getState() 
     expect(JSON.stringify(answ)).toBe(JSON.stringify(STUB));
 
-});
+});*/
 })

@@ -100,6 +100,8 @@ describe("Catalog: ", function (){
         events.click(detailsLink); 
         
         TestExampleStore.dispatch(productDetailsLoad(product.id));
+        //screen.logTestingPlaygroundURL()
+        //expect(screen.getByText(/loading/i)).toBeInTheDocument();
         TestExampleStore.dispatch(productDetailsLoaded(product));
 
         const name = container.querySelector('h1.ProductDetails-Name').innerHTML;
@@ -131,7 +133,6 @@ describe("Catalog: ", function (){
       
         expect(productSnapshot).toMatchSnapshot();
         
-        //screen.logTestingPlaygroundURL()
     });
     
     it("тест на добавление одного товара в корзину ", () => {
