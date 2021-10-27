@@ -135,6 +135,7 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart \(1\)/i
         })).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL()
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         
     });
@@ -144,6 +145,9 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();  
+        const cardBarges = container.querySelectorAll("span.CartBadge");
+        expect(cardBarges.length).toBe(0);
+        screen.logTestingPlaygroundURL()
         //screen.logTestingPlaygroundURL()     
     });
 
@@ -170,6 +174,9 @@ describe("Catalog: ", function (){
             name: /cart \(1\)/i
         })).toBeInTheDocument();
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
+        expect(container.textContent).toContain("Item in cart");
+        const cardBarges = container.querySelectorAll("span.CartBadge");
+        expect(cardBarges.length).toBe(1);
         //screen.logTestingPlaygroundURL()
         
     });
@@ -196,7 +203,10 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart \(2\)/i
         })).toBeInTheDocument();
-        screen.logTestingPlaygroundURL()
+        const cardBarges = container.querySelectorAll("span.CartBadge");
+        expect(cardBarges.length).toBe(2);
+        expect(container.textContent).toContain("Item in cart");
+        //screen.logTestingPlaygroundURL()
         
     });
 
