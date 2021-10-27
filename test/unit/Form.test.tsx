@@ -45,19 +45,22 @@ describe("Form тесты на: ", function() {
     
     TestExampleStore.dispatch(productDetailsLoad(product.id));
     TestExampleStore.dispatch(productDetailsLoaded(product));
-
-    const addBtn = container.querySelector('button.ProductDetails-AddToCart');
     
-    events.click(addBtn);
-
-    const cartBtn = screen.getByRole('link', {
-        name: /cart \(1\)/i
+    //screen.logTestingPlaygroundURL()
+    //const addBtn = container.querySelector('button.ProductDetails-AddToCart');
+    const addBtn = screen.getByRole('button', {
+        name: /add to cart/i
     });
-   
+
+    events.click(addBtn);
+    //screen.logTestingPlaygroundURL()
     
     it("Правильное отображение корзины", () => {
         const { container } = render(application);
-    
+        const cartBtn = screen.getByRole('link', {
+            name: /cart \(1\)/i
+        });
+       // screen.logTestingPlaygroundURL()
         events.click(cartBtn);
         const name = container.querySelector('td.Cart-Name').innerHTML;
         expect(name).toBe(product.name);

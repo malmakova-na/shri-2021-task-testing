@@ -66,36 +66,4 @@ it('productsLoaded', async() => {
     const answ = TestExampleStore.getState() 
     expect(answ.products).toBe(PRODUCTS);
 });  
-
-/*it('api: productDetailsLoad', async() => {
-    const api = new TestExampleApi(basename);
-    const cart = new CartApi();
-    const TestExampleStore = initStore(api, cart);
-    const answ = await productDetailsLoad(0);
-    expect(answ.id).toBe(0)
-}); */
-
-/*it('productDetailsLoaded', async() => {
-    const api = new TestExampleApi(basename);
-    const STUB = {
-        details: {
-          '0': {
-            id: 0,
-            name: 'test-product-name',
-            description: 'test-product-description',
-            price: 1,
-            color: 'black',
-            material: 'test-product-material'
-          }
-        },
-        cart: { '0': { name: 'test-product-name', count: 1, price: 1 } }
-    };
-  
-    const cart = new CartApi();
-    const TestExampleStore = initStore(api, cart);
-    TestExampleStore.dispatch( productDetailsLoaded(PRODUCTS[testId]));
-    const answ = TestExampleStore.getState() 
-    expect(JSON.stringify(answ)).toBe(JSON.stringify(STUB));
-
-});*/
 })

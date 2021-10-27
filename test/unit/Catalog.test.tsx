@@ -68,6 +68,7 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL();
        
         
     });
