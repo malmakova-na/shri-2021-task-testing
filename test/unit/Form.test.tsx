@@ -17,7 +17,6 @@ import { TestExampleApi } from "./TestApi";
 import { PRODUCTS, getProductById, USER, CartData, CartData_Test_1 } from './TestData';
 
 describe("Form тесты на: ", function() {
-    
     const basename = "/hw/store";
     const history = createMemoryHistory({
         initialEntries: ["/catalog"],
@@ -36,6 +35,8 @@ describe("Form тесты на: ", function() {
     const { container } = render(application);
     const testId = 0;
     const product = getProductById(testId);
+    it("Правильное отображение корзины", () => {
+        
 
     TestExampleStore.dispatch(productsLoad());
     TestExampleStore.dispatch(productsLoaded(PRODUCTS));
@@ -53,14 +54,14 @@ describe("Form тесты на: ", function() {
     });
 
     events.click(addBtn);
-    //screen.logTestingPlaygroundURL()
+    screen.logTestingPlaygroundURL()
+    const cartBtn = screen.getByRole('link', {
+        name: /cart \(1\)/i
+    });
+    screen.logTestingPlaygroundURL()
+   
+        //const { container } = render(application);
     
-    it("Правильное отображение корзины", () => {
-        const { container } = render(application);
-        const cartBtn = screen.getByRole('link', {
-            name: /cart \(1\)/i
-        });
-       // screen.logTestingPlaygroundURL()
         events.click(cartBtn);
         const name = container.querySelector('td.Cart-Name').innerHTML;
         expect(name).toBe(product.name);
