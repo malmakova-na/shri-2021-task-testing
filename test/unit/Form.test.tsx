@@ -53,7 +53,7 @@ describe("Form тесты на: ", function() {
     });
 
     events.click(addBtn);
-    screen.logTestingPlaygroundURL()
+    //screen.logTestingPlaygroundURL()
     
    
     
@@ -61,7 +61,7 @@ describe("Form тесты на: ", function() {
         const cartBtn = screen.getByRole('link', {
             name: /cart \(1\)/i
         });
-        screen.logTestingPlaygroundURL()
+        //screen.logTestingPlaygroundURL()
         const { container } = render(application);
     
         events.click(cartBtn);
@@ -96,11 +96,13 @@ describe("Form тесты на: ", function() {
         );
         const { container } = render(application);
     
-        expect(screen.getByRole('button', {
+        const clrBtn = screen.getByRole('button', {
             name: /clear shopping cart/i
-        })).toBeInTheDocument();//есть ли  кнопка удаления
-        TestExampleStore.dispatch(checkoutComplete(testId));
-        cart.setState(CartData);
+        });
+        expect(clrBtn).toBeInTheDocument();//есть ли  кнопка удаления
+        events.click(clrBtn);
+        //TestExampleStore.dispatch(checkoutComplete(testId));
+        //cart.setState(CartData);
         expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
         const view = screen.getByText(
             /cart is empty\. please select products in the \./i);

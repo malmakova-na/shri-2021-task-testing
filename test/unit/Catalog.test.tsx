@@ -180,7 +180,6 @@ describe("Catalog: ", function (){
         const emptyCartSnapshot = renderer.create(application).toJSON();
       
         expect(emptyCartSnapshot).toMatchSnapshot();
-       // screen.logTestingPlaygroundURL()
         //screen.logTestingPlaygroundURL()     
     });
 
