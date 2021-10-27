@@ -37,7 +37,7 @@ describe("Catalog: ", function (){
         const { container} = render(application);
         
         TestExampleStore.dispatch(productsLoad());
-        expect(screen.getByText(/loading/i).innerHTML).toBe('LOADING');
+        //expect(screen.getByText(/loading/i).innerHTML).toBe('LOADING');
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
         //screen.logTestingPlaygroundURL();
 
@@ -133,6 +133,7 @@ describe("Catalog: ", function (){
         
         //screen.logTestingPlaygroundURL()
     });
+    
     it("тест на добавление одного товара в корзину ", () => {
         const basename = "/hw/store";
         const history = createMemoryHistory({

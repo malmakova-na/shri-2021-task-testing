@@ -8,10 +8,14 @@ import { createMemoryHistory } from 'history';
 import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
-import { CartApi } from "../../src/client/api";
-import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded, checkoutComplete, checkout, addToCart } from "../../src/client/store";
+import { CartApi, ExampleApi } from "../../src/client/api";
+import { 
+    initStore, productsLoad, productsLoaded, productDetailsLoad, 
+    productDetailsLoaded, checkoutComplete, checkout, clearCart,
+    addToCart
+} from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
-import { PRODUCTS, getProductById, USER, CartData } from './TestData';
+import { PRODUCTS, getProductById, USER, CartData, CartData_Test_1 } from './TestData';
 
 describe("Form тесты на: ", function() {
     
@@ -86,17 +90,12 @@ describe("Form тесты на: ", function() {
             </Router>
         );
         const { container } = render(application);
-        /*const clrBtn = screen.getByRole('button', {
-            name: /clear shopping cart/i
-        });
-        expect(clrBtn).toBeInTheDocument();*/
-       // screen.logTestingPlaygroundURL()
+    
         expect(screen.getByRole('button', {
             name: /clear shopping cart/i
         })).toBeInTheDocument();//есть ли  кнопка удаления
         TestExampleStore.dispatch(checkoutComplete(testId));
         cart.setState(CartData);
-        //events.click(clrBtn);
         expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
         const view = screen.getByText(
             /cart is empty\. please select products in the \./i);
@@ -155,5 +154,6 @@ describe("Form тесты на: ", function() {
       
         expect(messageSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL()
-    })
+    });
+
 });

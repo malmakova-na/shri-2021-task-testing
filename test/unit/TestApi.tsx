@@ -13,16 +13,18 @@ export class TestExampleApi extends ExampleApi {
         return products as Promise<AxiosResponse<ProductShortInfo[], any>>;
       
     }
+   
     
-    /*
     async getProductById(id: number) {
-      const products = await new Promise((responce) => {
-        responce(this.products.filter(p => p.id === id));
-        
+      const ans = await new Promise((res, rej) => {
+        for (let product of this.products) {
+          if (product.id === id) res(product);
+        }
+        rej(null);
       });
   
-      return products as Promise<AxiosResponse<Product, any>>;
-    }*/
+      return ans as Promise<AxiosResponse<Product, any>>;
+    }
 
 };
 
