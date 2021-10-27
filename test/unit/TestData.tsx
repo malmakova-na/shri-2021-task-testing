@@ -49,7 +49,32 @@ export const CartData:CartState  = {
         price: 1,
     }
 };
-
+export const CartData_Test_1:CartState  = {
+    0:{
+        name: PRODUCTS[0].name,
+        count: 1,
+        price: PRODUCTS[0].price,
+    },
+};
+export const CartData_Test_2:CartState  = {
+    0:{
+        name: PRODUCTS[0].name,
+        count: 2,
+        price: PRODUCTS[0].price,
+    },
+};
+export const CartData_Test_3:CartState  = {
+    0:{
+        name: PRODUCTS[0].name,
+        count: 2,
+        price: PRODUCTS[0].price,
+    },
+    1:{
+        name: PRODUCTS[1].name,
+        count: 1,
+        price: PRODUCTS[0].price,
+    }
+};
 export const  getProductById = (id: number) => {
     for(let i = 0; i < PRODUCTS.length; i++) {
         if(PRODUCTS[i].id === id ){

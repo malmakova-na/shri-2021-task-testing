@@ -11,8 +11,7 @@ import { CartApi } from "../../src/client/api";
 import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded, checkoutComplete, checkout, addToCart } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
 import { PRODUCTS, getProductById, USER, CartData } from './TestData';
-import { Cart } from "../../src/client/pages/Cart";
-import {ExampleApi} from '../../src/client/api'
+
 describe("Form тесты на: ", function() {
     
     const basename = "/hw/store";
@@ -129,7 +128,7 @@ describe("Form тесты на: ", function() {
         //screen.logTestingPlaygroundURL();
 
     })
-    it("Отрисовка сообщение о совершении заказа", () => {
+    it("Отрисовку сообщения о совершении заказа", () => {
         const { container } = render(application);
         TestExampleStore.dispatch(checkoutComplete(10));
         
@@ -143,5 +142,6 @@ describe("Form тесты на: ", function() {
             name: /catalog/i
         });
         expect(view).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL()
     })
 });

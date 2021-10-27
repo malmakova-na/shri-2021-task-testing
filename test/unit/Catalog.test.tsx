@@ -10,9 +10,10 @@ import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
 import { initStore, productsLoad, productsLoaded, productDetailsLoad, productDetailsLoaded } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
-import { PRODUCTS, getProductById, CartData } from './TestData';
+import { PRODUCTS, getProductById, CartData, CartData_Test_1, CartData_Test_2, CartData_Test_3 } from './TestData';
 
 describe("Catalog: ", function (){
+    //console.log("store ",TestExampleStore)
     const basename = "/hw/store";
     const history = createMemoryHistory({
         initialEntries: ["/catalog"],
@@ -20,6 +21,7 @@ describe("Catalog: ", function (){
     });
     const api = new TestExampleApi(basename);
     const cart = new CartApi();
+    //cart.setState(CartData);
     const TestExampleStore = initStore(api, cart);
     const application = (
         <Router history={history}>
@@ -28,12 +30,13 @@ describe("Catalog: ", function (){
             </Provider>
         </Router>
     );
-    //console.log("store ",TestExampleStore)
+
     it("тест на отображение товаров в каталоге: ", () => {
-        
+    
         const { container} = render(application);
         
         TestExampleStore.dispatch(productsLoad());
+        expect(screen.getByText(/loading/i)).toBeInTheDocument();
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
         //screen.logTestingPlaygroundURL();
         const products = container.querySelectorAll(".card-body");
@@ -51,8 +54,8 @@ describe("Catalog: ", function (){
             const link = product.querySelector('a.ProductItem-DetailsLink.card-link').getAttribute('href');
             expect(link).toBe(`/catalog/${id}`);
         });
-        const productStatus = container.querySelector('span.CartBadge');
-        expect(productStatus).toBeNull();
+        //const productStatus = container.querySelector('span.CartBadge');
+        //expect(productStatus).toBeNull();
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
@@ -60,6 +63,20 @@ describe("Catalog: ", function (){
     });
 
     it("тест на отображение деталей о товаре ", () => {
+        const history = createMemoryHistory({
+            initialEntries: ["/catalog"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
         const { container, getByRole} = render(application);
         const testId = 0;
         const product = getProductById(testId);
@@ -94,8 +111,96 @@ describe("Catalog: ", function (){
             })
         ).toBeInTheDocument();
     });
+    it("тест на добавление одного товара в корзину ", () => {
+        const basename = "/hw/store";
+        const history = createMemoryHistory({
+            initialEntries: ["/catalog"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_1);
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        //console.log(TestExampleStore.getState())
+        expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
+        expect(screen.getByRole('link', {
+            name: /cart \(1\)/i
+        })).toBeInTheDocument();
+        //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
+        
+    });
+    it("тест на пустую корзину ", () => {
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        expect(screen.getByRole('link', {
+            name: /cart/i
+        })).toBeInTheDocument();  
+        //screen.logTestingPlaygroundURL()     
+    });
 
     it("тест на добавление одинакавых товаров  в корзину ", () => {
+        const basename = "/hw/store";
+        const history = createMemoryHistory({
+            initialEntries: ["/catalog"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_2);
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        expect(screen.getByRole('link', {
+            name: /cart \(1\)/i
+        })).toBeInTheDocument();
+        expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
+        //screen.logTestingPlaygroundURL()
+        
+    });
+
+    it("тест на добавление разных товаров  в корзину ", () => {
+        const basename = "/hw/store";
+        const history = createMemoryHistory({
+            initialEntries: ["/catalog"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_3);
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container, getByRole} = render(application);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        expect(screen.getByRole('link', {
+            name: /cart \(2\)/i
+        })).toBeInTheDocument();
+        screen.logTestingPlaygroundURL()
+        
+    });
+
+    /*it("тест на добавление одинакавых товаров  в корзину ", () => {
         const { container, getByRole} = render(application);
         const testId = 0;
         const product = getProductById(testId);
@@ -173,5 +278,5 @@ describe("Catalog: ", function (){
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         //screen.logTestingPlaygroundURL();
     });
-
+    */
 });
