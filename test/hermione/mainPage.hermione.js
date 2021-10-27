@@ -7,4 +7,5 @@ describe('Тест на главную страницу', async function() {
         compositeImage: true,
         });
     });
+    
 });
