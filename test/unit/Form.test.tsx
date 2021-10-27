@@ -45,25 +45,25 @@ describe("Form тесты на: ", function() {
     
     TestExampleStore.dispatch(productDetailsLoad(product.id));
     TestExampleStore.dispatch(productDetailsLoaded(product));
-
+    
+    //screen.logTestingPlaygroundURL()
+    //const addBtn = container.querySelector('button.ProductDetails-AddToCart');
     const addBtn = screen.getByRole('button', {
         name: /add to cart/i
     });
 
     events.click(addBtn);
-    //screen.logTestingPlaygroundURL()
+    screen.logTestingPlaygroundURL()
     
-    
-    //screen.logTestingPlaygroundURL()
-    //const addBtn = container.querySelector('button.ProductDetails-AddToCart');
    
     
     it("Правильное отображение корзины", () => {
-        //screen.logTestingPlaygroundURL()
         const cartBtn = screen.getByRole('link', {
             name: /cart \(1\)/i
         });
+        screen.logTestingPlaygroundURL()
         const { container } = render(application);
+    
         events.click(cartBtn);
         const name = container.querySelector('td.Cart-Name').innerHTML;
         expect(name).toBe(product.name);
@@ -117,7 +117,6 @@ describe("Form тесты на: ", function() {
     })
 
     it("Отправление пустой формы", () => {
-        screen.logTestingPlaygroundURL()
         const { container, getByText} = render(application);
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
