@@ -88,6 +88,55 @@ describe("Form тесты на: ", function() {
         //screen.logTestingPlaygroundURL()
 
     })
+    it("Корректное удаление содержимого корзины", () => {
+        const history = createMemoryHistory({
+            initialEntries: ["/cart"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container } = render(application);
+    
+        const clrBtn = screen.getByRole('button', {
+            name: /clear shopping cart/i
+        });
+        expect(clrBtn).toBeInTheDocument();//есть ли  кнопка удаления
+        events.click(clrBtn);
+        //TestExampleStore.dispatch(checkoutComplete(testId));
+        //cart.setState(CartData);
+        expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
+        const view = screen.getByText(
+            /cart is empty\. please select products in the \./i);
+          
+          within(view).getByRole('link', {
+            name: /catalog/i
+        });
+        expect(view).toBeInTheDocument();
+        const form = container.querySelector('Form');
+        expect(form).toBeNull();
+        
+        //screen.logTestingPlaygroundURL()
+        
+    })
+
+    it("Отправление пустой формы", () => {
+        const { container, getByText} = render(application);
+        expect(getByText(/please provide your name/i)).toBeInTheDocument();
+        expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
+        expect(getByText(/please provide a valid address/i)).toBeInTheDocument();
+        
+
+        
+        //screen.logTestingPlaygroundURL()
+    })
     /*
     it("Корректное удаление содержимого корзины", () => {
         const history = createMemoryHistory({
