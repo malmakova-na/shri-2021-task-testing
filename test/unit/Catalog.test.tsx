@@ -68,7 +68,11 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
-       
+        const catalogSnapshot = renderer.create(application).toJSON();
+        expect(catalogSnapshot).toMatchSnapshot();
+       //const cartSnapshot = renderer.create(application).toJSON();
+      
+        //expect(cartSnapshot).toMatchSnapshot();
         
     });
 
