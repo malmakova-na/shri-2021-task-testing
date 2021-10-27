@@ -8,11 +8,10 @@ import { createMemoryHistory } from 'history';
 import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
-import { CartApi, ExampleApi } from "../../src/client/api";
+import { CartApi } from "../../src/client/api";
 import { 
     initStore, productsLoad, productsLoaded, productDetailsLoad, 
-    productDetailsLoaded, checkoutComplete, checkout, clearCart,
-    addToCart
+    productDetailsLoaded, checkoutComplete
 } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
 import { PRODUCTS, getProductById, USER, CartData, CartData_Test_1 } from './TestData';
