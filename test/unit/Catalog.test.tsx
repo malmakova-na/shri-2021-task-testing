@@ -63,16 +63,12 @@ describe("Catalog: ", function (){
             const link = product.querySelector('a.ProductItem-DetailsLink.card-link').getAttribute('href');
             expect(link).toBe(`/catalog/${id}`);
         });
-        const productStatus = container.querySelector('span.CartBadge');
-        expect(productStatus).toBeNull();
+        //const productStatus = container.querySelector('span.CartBadge');
+        //expect(productStatus).toBeNull();
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();
-        const catalogSnapshot = renderer.create(application).toJSON();
-        expect(catalogSnapshot).toMatchSnapshot();
-       //const cartSnapshot = renderer.create(application).toJSON();
-      
-        //expect(cartSnapshot).toMatchSnapshot();
+       
         
     });
 
@@ -104,8 +100,6 @@ describe("Catalog: ", function (){
         events.click(detailsLink); 
         
         TestExampleStore.dispatch(productDetailsLoad(product.id));
-        //screen.logTestingPlaygroundURL()
-        expect(screen.getByText(/loading/i)).toBeInTheDocument();
         TestExampleStore.dispatch(productDetailsLoaded(product));
 
         const name = container.querySelector('h1.ProductDetails-Name').innerHTML;
@@ -137,6 +131,7 @@ describe("Catalog: ", function (){
       
         expect(productSnapshot).toMatchSnapshot();
         
+        //screen.logTestingPlaygroundURL()
     });
     
     it("тест на добавление одного товара в корзину ", () => {
@@ -163,6 +158,7 @@ describe("Catalog: ", function (){
         expect(screen.getByRole('link', {
             name: /cart \(1\)/i
         })).toBeInTheDocument();
+
         //screen.logTestingPlaygroundURL()
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         

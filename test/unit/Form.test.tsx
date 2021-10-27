@@ -105,8 +105,7 @@ describe("Form тесты на: ", function() {
         expect(view).toBeInTheDocument();
         const form = container.querySelector('Form');
         expect(form).toBeNull();
-        const emptyCartSnapshot = renderer.create(application).toJSON();
-        expect(emptyCartSnapshot).toMatchSnapshot();
+        
         //screen.logTestingPlaygroundURL()
         
     })
@@ -116,8 +115,7 @@ describe("Form тесты на: ", function() {
         expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid address/i)).toBeInTheDocument();
-        const emptyFormSnapshot = renderer.create(application).toJSON();
-        expect(emptyFormSnapshot).toMatchSnapshot();
+        
 
         
         //screen.logTestingPlaygroundURL()
