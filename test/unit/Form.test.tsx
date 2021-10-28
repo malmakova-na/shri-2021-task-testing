@@ -108,6 +108,7 @@ describe("Form тесты на: ", function() {
         const clrBtn = screen.getByRole('button', {
             name: /clear shopping cart/i
         });
+        //screen.logTestingPlaygroundURL()
         expect(clrBtn).toBeInTheDocument();//есть ли  кнопка удаления
         events.click(clrBtn);
         //TestExampleStore.dispatch(checkoutComplete(testId));
@@ -122,16 +123,46 @@ describe("Form тесты на: ", function() {
         expect(view).toBeInTheDocument();
         const form = container.querySelector('Form');
         expect(form).toBeNull();
-        
-        //screen.logTestingPlaygroundURL()
+        const navigation = screen.getByRole('navigation');
+
+        const catalog = within(navigation).getByRole('link', {
+          name: /catalog/i
+        });
+        events.click(catalog);
+        TestExampleStore.dispatch(productsLoaded(PRODUCTS));
+        const cardBarges = container.querySelectorAll("span.CartBadge");
+        expect(cardBarges.length).toBe(0);
+        screen.logTestingPlaygroundURL()
         
     })
 
     it("Отправление пустой формы", () => {
-        const { container, getByText} = render(application);
-        expect(getByText(/please provide your name/i)).toBeInTheDocument();
+        const history = createMemoryHistory({
+            initialEntries: ["/cart"],
+            initialIndex: 0
+        });
+        const api = new TestExampleApi(basename);
+        const cart = new CartApi();
+        cart.setState(CartData_Test_1)
+        const TestExampleStore = initStore(api, cart);
+        const application = (
+            <Router history={history}>
+                <Provider store={TestExampleStore}>
+                <Application />
+                </Provider>
+            </Router>
+        );
+        const { container } = render(application);
+        const checkBtn = screen.getByRole('button', {
+            name: /checkout/i
+        });
+        const notValidFormSnapshot = renderer.create(application).toJSON();
+      
+        expect(notValidFormSnapshot).toMatchSnapshot();
+        
+        /*expect(getByText(/please provide your name/i)).toBeInTheDocument();
         expect(getByText(/please provide a valid phone/i)).toBeInTheDocument();
-        expect(getByText(/please provide a valid address/i)).toBeInTheDocument();
+        expect(getByText(/please provide a valid address/i)).toBeInTheDocument();*/
         
 
         
