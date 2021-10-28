@@ -76,6 +76,9 @@ describe("Form тесты на: ", function() {
 
         const total = container.querySelector('td.Cart-Total').innerHTML;
         expect(total).toBe('$' + product.price);
+        
+        
+        
         TestExampleStore.dispatch(checkoutComplete(10));
         ///screen.logTestingPlaygroundURL()
         
@@ -88,7 +91,7 @@ describe("Form тесты на: ", function() {
         //screen.logTestingPlaygroundURL()
 
     })
-    it("Корректное удаление содержимого корзины", () => {
+    /*it("Корректное удаление содержимого корзины", () => {
         const history = createMemoryHistory({
             initialEntries: ["/cart"],
             initialIndex: 0
@@ -134,7 +137,7 @@ describe("Form тесты на: ", function() {
         expect(cardBarges.length).toBe(0);
         screen.logTestingPlaygroundURL()
         
-    })
+    })*/
 
     it("Отправление пустой формы", () => {
         const history = createMemoryHistory({

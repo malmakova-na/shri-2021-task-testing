@@ -168,7 +168,7 @@ describe("Catalog: ", function (){
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         
     });
-    /*it("тест на пустую корзину ", () => {
+    it("тест на пустую корзину ", () => {
         const history = createMemoryHistory({
             initialEntries: ["/cart"],
             initialIndex: 0
@@ -185,7 +185,7 @@ describe("Catalog: ", function (){
         );
         const { container, getByRole} = render(application);
         TestExampleStore.dispatch(productsLoaded(PRODUCTS));
-        /*expect(screen.getByRole('link', {
+        expect(screen.getByRole('link', {
             name: /cart/i
         })).toBeInTheDocument();  
         const cardBarges = container.querySelectorAll("span.CartBadge");
@@ -194,7 +194,7 @@ describe("Catalog: ", function (){
             name: /cart/i
         });
         events.click(cartBtn);
-        expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
+        //expect(screen.getByText(/cart is empty\. please select products in the \./i)).toBeInTheDocument();
         const emptyCartSnapshot = renderer.create(application).toJSON();
       
         expect(emptyCartSnapshot).toMatchSnapshot();
@@ -202,8 +202,8 @@ describe("Catalog: ", function (){
         
         
         
-        screen.logTestingPlaygroundURL()     
-    });*/
+        //screen.logTestingPlaygroundURL()     
+    });
 
     it("тест на добавление одинакавых товаров  в корзину ", () => {
         const basename = "/hw/store";
