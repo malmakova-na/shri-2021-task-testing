@@ -5,6 +5,7 @@ import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
+import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { ExampleApi, CartApi } from "../../src/client/api";
@@ -65,5 +66,9 @@ it("Правильно отображается NavBar", () => {
         expect(screen.getByRole('link', {
             name: /cart/i
         })).toHaveAttribute('href');
+
+        const navBarSnapshot = renderer.create(application).toJSON();
+      
+        expect(navBarSnapshot).toMatchSnapshot();
 
 });

@@ -168,7 +168,7 @@ describe("Catalog: ", function (){
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         
     });
-    it("тест на пустую корзину ", () => {
+    /*it("тест на пустую корзину ", () => {
         const history = createMemoryHistory({
             initialEntries: ["/cart"],
             initialIndex: 0
@@ -203,7 +203,7 @@ describe("Catalog: ", function (){
         
         
         //screen.logTestingPlaygroundURL()     
-    });
+    });*/
 
     it("тест на добавление одинакавых товаров  в корзину ", () => {
         const basename = "/hw/store";
@@ -295,7 +295,7 @@ describe("Catalog: ", function (){
         const cartSnapshot = renderer.create(application).toJSON();
       
         expect(cartSnapshot).toMatchSnapshot();
-        //screen.logTestingPlaygroundURL()
+        screen.logTestingPlaygroundURL()
         //expect(screen.getByText(/item in cart/i)).toBeInTheDocument();        
         
     });
