@@ -29,5 +29,23 @@ describe('Тест на  товар', async function() {
             compositeImage: true,
         });
         await this.browser.$('.Cart-Clear').click();
+    });
+    it("есть ссылка на каталог у пустой корзины", async function () {
+        await this.browser.url("/hw/store/cart");
+        const href = await (await this.browser.$(".Cart a")).getAttribute("href");
+        assert.equal(href, "/hw/store/catalog");
+    });
+    it("удаление товов из корзины", async function () {
+        await openCatalog.call(this);
+        const detailsLink = await this.browser.$(".card-link");
+        const url = await detailsLink.getAttribute("href");
+        await this.browser.url(url);
+        const btn = await this.browser.$(".ProductDetails-AddToCart");
+        await btn.click();
+        await this.browser.url("/hw/store/cart");
+        assert.equal((await this.browser.$$(".Cart-Table tbody tr")).length, 1);
+        const clearBtn = await this.browser.$(".Cart-Clear");
+        await clearBtn.click();
+        assert.equal((await this.browser.$$(".Cart-Table")).length, 0);
       });
 });
