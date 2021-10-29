@@ -64,10 +64,13 @@ describe("Form тесты на: ", function() {
         TestExampleStore.dispatch(checkoutComplete(10));
         
         expect(screen.getByText(/10/i)).toBeInTheDocument();
-        
         const message = container.querySelector('div.Cart-SuccessMessage');
         expect(message).toBeInTheDocument();
-
+       
+        expect(screen.getByRole('link', {
+            name: /cart/i
+        })).toBeInTheDocument();
         //screen.logTestingPlaygroundURL()
     });
+    
 });
