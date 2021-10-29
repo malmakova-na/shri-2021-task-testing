@@ -1,5 +1,5 @@
 import { ExampleApi, CartApi } from '../../src/client/api';
-import { CartState, CheckoutFormData, CheckoutResponse, Product, ProductShortInfo } from '../../src/common/types';
+import { Product, ProductShortInfo } from '../../src/common/types';
 import axios, { AxiosResponse } from 'axios';
 
 

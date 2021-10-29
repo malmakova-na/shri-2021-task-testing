@@ -1,4 +1,3 @@
-import { productsLoaded } from '../../src/client/store';
 import { Product, CartItem, CartState, CheckoutFormData } from '../../src/common/types';
 
 const PRODUCT = {
