@@ -109,13 +109,12 @@ describe('Catalog тест на: ', function() {
             name: /add to cart/i
         });
         events.click(addBtn);
-        //TestExampleStore.dispatch(productsLoaded(PRODUCTS));
-        //console.log(TestExampleStore.getState())
+    
         expect(screen.getByText(/item in cart/i)).toBeInTheDocument();
         expect(screen.getByRole('link', {
             name: /cart \(1\)/i
         })).toBeInTheDocument();
-        
+        screen.logTestingPlaygroundURL()
 
     });
 })

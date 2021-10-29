@@ -5,17 +5,15 @@ import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
-import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
 
 import { TestExampleApi } from "./TestApi";
-import { PRODUCTS, getProductById, USER, CartData, CartData_Test_1, CartData_Test_3 } from './TestData';
-import { CartData_Test_2 } from "../../../test/test/unit/TestData";
+import { PRODUCTS, CartData_Test_1, CartData_Test_3 } from './TestData';
+
 import { 
-    initStore, productsLoad, productsLoaded, productDetailsLoad, 
-    productDetailsLoaded, checkoutComplete
+    initStore, productsLoaded
 } from "../../src/client/store";
 describe("Cart тесты на: ", function() {
     const history = createMemoryHistory({
