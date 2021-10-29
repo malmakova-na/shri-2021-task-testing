@@ -13,6 +13,7 @@ import {
 } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
 import { USER, CartData_Test_1 } from './TestData';
+import renderer from 'react-test-renderer';
 
 describe("Form тесты на: ", function() {
     const history = createMemoryHistory({
@@ -61,16 +62,18 @@ describe("Form тесты на: ", function() {
     
     it("Отрисовку сообщения о совершении заказа", () => {
         const { container } = render(application);
+        //console.log(TestExampleStore.getState())
         TestExampleStore.dispatch(checkoutComplete(10));
         
         expect(screen.getByText(/10/i)).toBeInTheDocument();
         const message = container.querySelector('div.Cart-SuccessMessage');
         expect(message).toBeInTheDocument();
        
-        expect(screen.getByRole('link', {
-            name: /cart/i
-        })).toBeInTheDocument();
-        //screen.logTestingPlaygroundURL()
+        //expect(TestExampleStore.getState()).toBe(`${{ details: {}, cart: {}, latestOrderId: 10 }}`);
+        const messageSnapshot = renderer.create(application).toJSON();
+      
+        expect(messageSnapshot).toMatchSnapshot();
+        
     });
     
 });
