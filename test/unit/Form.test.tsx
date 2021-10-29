@@ -1,21 +1,18 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import events from "@testing-library/user-event";
 import { Router } from "react-router";
 import { Provider } from "react-redux";
 import { createMemoryHistory } from 'history';
-import renderer from 'react-test-renderer';
 
 import { Application } from "../../src/client/Application";
 import { CartApi } from "../../src/client/api";
 import { 
-    initStore, productsLoad, productsLoaded, productDetailsLoad, 
-    productDetailsLoaded, checkoutComplete, checkout
+    initStore, checkoutComplete
 } from "../../src/client/store";
 import { TestExampleApi } from "./TestApi";
-import { PRODUCTS, getProductById, USER, CartData, CartData_Test_1 } from './TestData';
-import { CartData_Test_2 } from "../../../test/test/unit/TestData";
+import { USER, CartData_Test_1 } from './TestData';
 
 describe("Form тесты на: ", function() {
     const history = createMemoryHistory({
@@ -71,11 +68,6 @@ describe("Form тесты на: ", function() {
         const message = container.querySelector('div.Cart-SuccessMessage');
         expect(message).toBeInTheDocument();
 
-        
-        
-        //const messageSnapshot = renderer.create(application).toJSON();
-      
-        //expect(messageSnapshot).toMatchSnapshot();
         //screen.logTestingPlaygroundURL()
     });
 });
